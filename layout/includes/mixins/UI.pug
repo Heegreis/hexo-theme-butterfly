@@ -52,5 +52,8 @@ mixin UI_NEW(posts)
           - content.length > theme.auto_excerpt.length ? expert += ' ...' : ''
           .content!= expert
         else
-          .content!= article.description
+          if theme.excerpt_label && theme.excerpt_label.enable
+            .content!= article.excerpt
+          else
+            .content!= article.description
   - })
